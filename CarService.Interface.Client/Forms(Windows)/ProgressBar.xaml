@@ -1,0 +1,18 @@
+﻿<Window x:Class="CarService.Interface.Client.WindowsWpf.ProgressBar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xamlAnimatedGif="https://github.com/XamlAnimatedGif/XamlAnimatedGif"
+        mc:Ignorable="d"
+        
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Title="ProgressBar" Height="170" Width="419" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ShowInTaskbar="False">
+    <Window.Background>
+        <ImageBrush/>
+    </Window.Background>
+
+    <Image x:Name ="ImgProgressBar" Opacity="100" xamlAnimatedGif:AnimationBehavior.SourceUri="/Resources/img/progress-bar.gif"  HorizontalAlignment="Left" Width="417" Stretch="Fill"/>
+    
+</Window>

@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CarService.Core.Entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CarService.Core.Entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Order" nillable="true" type="tns:Order" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrder" nillable="true" type="tns:ArrayOfOrder" />
+  <xs:complexType name="Order">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelId">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Client" nillable="true" type="tns:Client" />
+          <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+          <xs:element minOccurs="0" name="IsPaid" type="xs:boolean" />
+          <xs:element minOccurs="0" name="OrderStatus" nillable="true" type="tns:OrderStatus" />
+          <xs:element minOccurs="0" name="OrderedServices" nillable="true" type="tns:ArrayOfOrderedService" />
+          <xs:element minOccurs="0" name="OrderedSpares" nillable="true" type="tns:ArrayOfOrderedSpare" />
+          <xs:element minOccurs="0" name="Payments" nillable="true" type="tns:ArrayOfPayment" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="TotalPrice" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Order" nillable="true" type="tns:Order" />
+  <xs:complexType name="ModelId">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TimeStamp">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModelId" nillable="true" type="tns:ModelId" />
+  <xs:complexType name="TimeStamp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Modified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TimeStamp" nillable="true" type="tns:TimeStamp" />
+  <xs:complexType name="Client">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelId">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Cars" nillable="true" type="tns:ArrayOfCar" />
+          <xs:element minOccurs="0" name="Discount" nillable="true" type="tns:Discount" />
+          <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Notes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Orders" nillable="true" type="tns:ArrayOfOrder" />
+          <xs:element minOccurs="0" name="PassportData" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Client" nillable="true" type="tns:Client" />
+  <xs:complexType name="ArrayOfCar">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Car" nillable="true" type="tns:Car" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCar" nillable="true" type="tns:ArrayOfCar" />
+  <xs:complexType name="Car">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelId">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Client" nillable="true" type="tns:Client" />
+          <xs:element minOccurs="0" name="Model" nillable="true" type="tns:Model" />
+          <xs:element minOccurs="0" name="NumberCar" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReleaseYear" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Vin" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Car" nillable="true" type="tns:Car" />
+  <xs:complexType name="Model">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelName">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BodyType" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Brand" nillable="true" type="tns:Brand" />
+          <xs:element minOccurs="0" name="Engine" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReleaseYear" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Model" nillable="true" type="tns:Model" />
+  <xs:complexType name="ModelName">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelId">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ModelName" nillable="true" type="tns:ModelName" />
+  <xs:complexType name="Brand">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Dictionary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Car" nillable="true" type="tns:ArrayOfCar" />
+          <xs:element minOccurs="0" name="Models" nillable="true" type="tns:ArrayOfModel" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Brand" nillable="true" type="tns:Brand" />
+  <xs:complexType name="Dictionary">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelName">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IsDeleted" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Dictionary" nillable="true" type="tns:Dictionary" />
+  <xs:complexType name="ArrayOfModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Model" nillable="true" type="tns:Model" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfModel" nillable="true" type="tns:ArrayOfModel" />
+  <xs:complexType name="Discount">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Dictionary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Percentage" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Discount" nillable="true" type="tns:Discount" />
+  <xs:complexType name="OrderStatus">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Dictionary">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OrderStatus" nillable="true" type="tns:OrderStatus" />
+  <xs:complexType name="ArrayOfOrderedService">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderedService" nillable="true" type="tns:OrderedService" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderedService" nillable="true" type="tns:ArrayOfOrderedService" />
+  <xs:complexType name="OrderedService">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelId">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FinalPrice" type="xs:double" />
+          <xs:element minOccurs="0" name="Order" nillable="true" type="tns:Order" />
+          <xs:element minOccurs="0" name="Service" nillable="true" type="tns:Service" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OrderedService" nillable="true" type="tns:OrderedService" />
+  <xs:complexType name="Service">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Dictionary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BasePrice" type="xs:double" />
+          <xs:element minOccurs="0" name="EmployeePercent" type="xs:int" />
+          <xs:element minOccurs="0" name="ServiceType" nillable="true" type="tns:ServiceType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Service" nillable="true" type="tns:Service" />
+  <xs:complexType name="ServiceType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Dictionary">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="ServiceType" nillable="true" type="tns:ServiceType" />
+  <xs:complexType name="User">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelId">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BaseSalary" type="xs:double" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TypeOfWorks" nillable="true" type="tns:ArrayOfWorkType" />
+          <xs:element minOccurs="0" name="UserGroup" nillable="true" type="tns:UserGroup" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfWorkType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="WorkType" nillable="true" type="tns:WorkType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfWorkType" nillable="true" type="tns:ArrayOfWorkType" />
+  <xs:complexType name="WorkType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelId">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfUser" />
+          <xs:element minOccurs="0" name="WorkName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="WorkType" nillable="true" type="tns:WorkType" />
+  <xs:complexType name="ArrayOfUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+  <xs:complexType name="UserGroup">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Dictionary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Grants" nillable="true" type="tns:ArrayOfGrant" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="UserGroup" nillable="true" type="tns:UserGroup" />
+  <xs:complexType name="ArrayOfGrant">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Grant" nillable="true" type="tns:Grant" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGrant" nillable="true" type="tns:ArrayOfGrant" />
+  <xs:complexType name="Grant">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Dictionary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="UserGroups" nillable="true" type="tns:ArrayOfUserGroup" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Grant" nillable="true" type="tns:Grant" />
+  <xs:complexType name="ArrayOfUserGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserGroup" nillable="true" type="tns:UserGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserGroup" nillable="true" type="tns:ArrayOfUserGroup" />
+  <xs:complexType name="ArrayOfOrderedSpare">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OrderedSpare" nillable="true" type="tns:OrderedSpare" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOrderedSpare" nillable="true" type="tns:ArrayOfOrderedSpare" />
+  <xs:complexType name="OrderedSpare">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelId">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Count" type="xs:int" />
+          <xs:element minOccurs="0" name="Currency" nillable="true" type="tns:Currency" />
+          <xs:element minOccurs="0" name="ExchangeRate" nillable="true" type="xs:double" />
+          <xs:element minOccurs="0" name="Order" nillable="true" type="tns:Order" />
+          <xs:element minOccurs="0" name="PriceForAll" type="xs:double" />
+          <xs:element minOccurs="0" name="Spare" nillable="true" type="tns:Spare" />
+          <xs:element minOccurs="0" name="UsedMarkup" type="xs:double" />
+          <xs:element minOccurs="0" name="User" nillable="true" type="tns:User" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="OrderedSpare" nillable="true" type="tns:OrderedSpare" />
+  <xs:complexType name="Currency">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Dictionary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:int" />
+          <xs:element minOccurs="0" name="ExchangeRate" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Currency" nillable="true" type="tns:Currency" />
+  <xs:complexType name="Spare">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Dictionary">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Currency" nillable="true" type="tns:Currency" />
+          <xs:element minOccurs="0" name="Manufacturer" nillable="true" type="tns:Manufacturer" />
+          <xs:element minOccurs="0" name="MarkupPercentage" type="xs:int" />
+          <xs:element minOccurs="0" name="Price" type="xs:double" />
+          <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Spare" nillable="true" type="tns:Spare" />
+  <xs:complexType name="Manufacturer">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Dictionary">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Manufacturer" nillable="true" type="tns:Manufacturer" />
+  <xs:complexType name="ArrayOfPayment">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Payment" nillable="true" type="tns:Payment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPayment" nillable="true" type="tns:ArrayOfPayment" />
+  <xs:complexType name="Payment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ModelId">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Order" nillable="true" type="tns:Order" />
+          <xs:element minOccurs="0" name="PaymentType" nillable="true" type="tns:PaymentType" />
+          <xs:element minOccurs="0" name="Summ" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Payment" nillable="true" type="tns:Payment" />
+  <xs:complexType name="PaymentType">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Dictionary">
+        <xs:sequence />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PaymentType" nillable="true" type="tns:PaymentType" />
+  <xs:complexType name="ArrayOfSpare">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Spare" nillable="true" type="tns:Spare" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSpare" nillable="true" type="tns:ArrayOfSpare" />
+</xs:schema>

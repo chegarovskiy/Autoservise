@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0d0bf7ea-ec97-4e0f-8a91-587fa80c6310" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:52469/CarAppService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CarAppService.xsd" MetadataType="Schema" ID="ac5fe68f-12a9-4563-b880-7bf39b5e8dc0" SourceId="1" SourceUrl="http://localhost:52469/CarAppService.svc?xsd=xsd0" />
+    <MetadataFile FileName="CarAppService.disco" MetadataType="Disco" ID="fa64a87f-7d16-4cf3-b9a7-a95ccdfe7704" SourceId="1" SourceUrl="http://localhost:52469/CarAppService.svc?disco" />
+    <MetadataFile FileName="CarAppService1.xsd" MetadataType="Schema" ID="20f9abb3-bc87-4eda-976b-e9d62a9c0560" SourceId="1" SourceUrl="http://localhost:52469/CarAppService.svc?xsd=xsd2" />
+    <MetadataFile FileName="CarAppService.wsdl" MetadataType="Wsdl" ID="c05a5438-339b-4e5f-95df-da78edf2a606" SourceId="1" SourceUrl="http://localhost:52469/CarAppService.svc?wsdl" />
+    <MetadataFile FileName="CarAppService2.xsd" MetadataType="Schema" ID="b858263d-cc01-4092-afd8-148897493d1a" SourceId="1" SourceUrl="http://localhost:52469/CarAppService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

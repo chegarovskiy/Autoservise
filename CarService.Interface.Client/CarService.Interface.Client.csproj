@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C98917D9-EF93-4915-B3F3-B1B371CDF2E6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CarService.Interface.Client</RootNamespace>
+    <AssemblyName>CarService.Interface.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=4.1.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.1.1\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.12.0.4518.1014\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="XamlAnimatedGif, Version=1.1.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XamlAnimatedGif.1.1.6\lib\net45\XamlAnimatedGif.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=2.9.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.9\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=2.9.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.9\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=2.9.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.9\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=2.9.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.9\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.DataGrid, Version=2.9.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.9\lib\net40\Xceed.Wpf.DataGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=2.9.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.2.9\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Forms%28Windows%29\AboutCarServiceApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms%28Windows%29\AboutCarServiceApp.Designer.cs">
+      <DependentUpon>AboutCarServiceApp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms%28Windows%29\AddNewClient.xaml.cs">
+      <DependentUpon>AddNewClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms%28Windows%29\Authorization.xaml.cs">
+      <DependentUpon>Authorization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Forms%28Windows%29\SelectExistingClient.xaml.cs">
+      <DependentUpon>SelectExistingClient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms%28Windows%29\UserControls\SpareParts.xaml.cs">
+      <DependentUpon>SpareParts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms%28Windows%29\UserControls\UcReport.xaml.cs">
+      <DependentUpon>UcReport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms%28Windows%29\UserControls\UcCalendar.xaml.cs">
+      <DependentUpon>UcCalendar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms%28Windows%29\ProgressBar.xaml.cs">
+      <DependentUpon>ProgressBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms%28Windows%29\UserControls\UcMakeOrder.xaml.cs">
+      <DependentUpon>UcMakeOrder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\ProgressBar.cs" />
+    <Compile Include="Service References\CarServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SpareTwin.cs" />
+    <Page Include="Forms%28Windows%29\AddNewClient.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms%28Windows%29\Authorization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms%28Windows%29\SelectExistingClient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms%28Windows%29\UserControls\SpareParts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms%28Windows%29\UserControls\UcReport.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms%28Windows%29\UserControls\UcCalendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms%28Windows%29\ProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms%28Windows%29\UserControls\UcDocuments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms%28Windows%29\UserControls\UcMakeOrder.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Forms%28Windows%29\UserControls\UcWarehouse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms%28Windows%29\UserMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms%28Windows%29\UserControls\UcDocuments.xaml.cs">
+      <DependentUpon>UcDocuments.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms%28Windows%29\UserControls\UcWarehouse.xaml.cs">
+      <DependentUpon>UcWarehouse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms%28Windows%29\UserMainWindow.xaml.cs">
+      <DependentUpon>UserMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Forms%28Windows%29\AboutCarServiceApp.resx">
+      <DependentUpon>AboutCarServiceApp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\CarService.Core.Entities.Order.datasource" />
+    <None Include="Properties\DataSources\CarService.Core.Entities.Spare.datasource" />
+    <None Include="Properties\DataSources\CarService.Core.Entities.WorkType.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="Service References\CarServiceReference\CarAppService.wsdl" />
+    <None Include="Service References\CarServiceReference\CarAppService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CarServiceReference\CarAppService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CarServiceReference\CarAppService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\Eye-icon-closed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\Eye-icon-open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\logoAbout.png" />
+    <Resource Include="Resources\img\progress-bar.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CarService.Core.BusinessLogicLayer\CarService.Core.BusinessLogicLayer.csproj">
+      <Project>{0553a834-88aa-4c0e-b4ba-86a68cd4985d}</Project>
+      <Name>CarService.Core.BusinessLogicLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarService.Core.DataAccessLayer\CarService.Core.DataAccessLayer.csproj">
+      <Project>{ecc4e1b0-4708-4e7e-9fb7-575c14e6e075}</Project>
+      <Name>CarService.Core.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarService.Core.Entities\CarService.Core.Entities.csproj">
+      <Project>{1814a4b2-7ee6-4c63-8a18-748a683a9919}</Project>
+      <Name>CarService.Core.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CarService.Service.CarWcfServer\CarService.Service.CarWcfServer.csproj">
+      <Project>{7de06d52-3dc5-43cb-b73d-32e5a4966ec7}</Project>
+      <Name>CarService.Service.CarWcfServer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\warehouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\calendar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\buy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\calendar-day-icon.png" />
+    <Resource Include="Resources\img\calendar-month-icon.png" />
+    <Resource Include="Resources\img\calendar-week-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CarServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CarServiceReference\CarAppService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CarServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CarServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CarServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\about-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\add-icon.png" />
+    <Resource Include="Resources\img\remove-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\Search-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\order-now.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\add_spare_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\auto_icon_2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\auto_icon_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\auto_icno_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\auto_icon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\auto_icon_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\auto_icon_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\img\order-now.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

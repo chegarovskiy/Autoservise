@@ -1,0 +1,61 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:local="clr-namespace:CarService.Interface.Client.Forms_Windows_.UserControls"
+             xmlns:s="clr-namespace:System;assembly=mscorlib"
+             xmlns:Entities="clr-namespace:CarService.Core.Entities;assembly=CarService.Core.Entities"
+             xmlns:forms="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms" x:Name="UcReportGrid"
+             x:Class="CarService.Interface.Client.Forms_Windows_.UserControls.UcReport"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="700"
+             >
+    <Grid x:Name="GrdReport" Margin="0,0,1,0" Background="#FF8E9EA4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="194*"/>
+            <ColumnDefinition Width="505*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="GrdReportBottBar" Grid.ColumnSpan="2" Margin="183,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="201*"/>
+                <RowDefinition Height="49*"/>
+            </Grid.RowDefinitions>
+            <DatePicker x:Name="DtpDateFrom" Margin="-175,114,0,0" HorizontalAlignment="Left" Width="160" Height="24" VerticalAlignment="Top" DisplayDate="2016-11-01" FirstDayOfWeek="Monday" />
+            <Label x:Name="label" Content="STO Report information" VerticalAlignment="Top" Margin="106,22,100,0" FontSize="26.667" FontWeight="Bold" HorizontalAlignment="Center" Height="45" Width="310"/>
+            <Label x:Name="lbDateFrom" Content="Date from:" HorizontalAlignment="Left" Margin="-175,83,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6,-9.654" FontWeight="Bold" Height="26" Width="71"/>
+            <DatePicker x:Name="DtpDateTo" Margin="-175,174,0,0" HorizontalAlignment="Left" Width="160" Height="24" VerticalAlignment="Top" FirstDayOfWeek="Monday" DisplayDate="2016-11-01" />
+            <Label x:Name="lbDateTo" Content="Date to:" HorizontalAlignment="Left" Margin="-175,143,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6,-9.654" FontWeight="Bold" Height="26" Width="55"/>
+            <Label x:Name="lbReportOwner" Content="Report was created by:" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6,-9.654" FontWeight="Bold" Grid.Row="1" Width="153" Height="26"/>
+            <ListView x:Name="lvReportInfo" Margin="10,83,0,10" IsSynchronizedWithCurrentItem="False">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="№ п/п" DisplayMemberBinding="{Binding Number}" Width="70" />
+                        <GridViewColumn Header="Пользователь" DisplayMemberBinding="{Binding User}" Width="200"/>
+                        <GridViewColumn Header="Наименование" DisplayMemberBinding="{Binding Name}" Width="220"/>
+                        <GridViewColumn Header="Дата" DisplayMemberBinding="{Binding Date}" Width="100"/>
+                        <GridViewColumn Header="Сумма (екв.), грн." DisplayMemberBinding="{Binding Summ}" Width="100"/>
+                    </GridView>
+                </ListView.View>
+                <ListViewItem Content="ListViewItem" Margin="0"/>
+            </ListView>
+            <TextBox x:Name="tbReportOwner" HorizontalAlignment="Left" Height="23" Margin="153,3,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="261"/>
+            <Label x:Name="lbDateTimeReport" Content="Date/Time report:" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6,-9.654" FontWeight="Bold" Grid.Row="1" Width="153" Height="26"/>
+            <TextBox x:Name="tbReportDate" HorizontalAlignment="Left" Height="23" Margin="153,33,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="261"/>
+            <Button x:Name="BtnConfirm" Content="Confirm" HorizontalAlignment="Left" Margin="-90,275,0,0" VerticalAlignment="Top" Width="75" Click="BtnConfirm_Click" Cursor="Hand"/>
+            <Label x:Name="lbInputError" Content="Input error" HorizontalAlignment="Left" Margin="-175,0,0,7" RenderTransformOrigin="-6,-9.654" FontWeight="Bold" Width="160" FontSize="16" Foreground="#FFEE0E0E" Grid.Row="1" Height="31" VerticalAlignment="Bottom"/>
+            <ComboBox x:Name="cbTypeReport" HorizontalAlignment="Left"  Margin="-175,234,0,0" VerticalAlignment="Top" Width="160" Cursor="Hand">
+                <ComboBoxItem Content="chose type report" HorizontalAlignment="Left" Width="158"/>
+                <ComboBoxItem Content="Orders" HorizontalAlignment="Left" Width="158"/>
+                <ComboBoxItem Content="Services done" HorizontalAlignment="Left" Width="158"/>
+                <ComboBoxItem Content="Spares sold" HorizontalAlignment="Left" Width="158"/>
+                <ComboBoxItem Content="Total revenue" HorizontalAlignment="Left" Width="158"/>
+            </ComboBox>
+            <Label x:Name="lbTypeReport" Content="Type report" HorizontalAlignment="Left" Margin="-175,203,0,0" RenderTransformOrigin="-6,-9.654" FontWeight="Bold" Width="133" Height="26" VerticalAlignment="Top"/>
+        </Grid>
+    </Grid>
+</UserControl>

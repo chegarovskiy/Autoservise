@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="CarService.Interface.Client.Forms_Windows_.UserControls.UcDocuments"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CarService.Interface.Client.Forms_Windows_.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="280.147" d:DesignWidth="183.456">
+    <Grid>
+        <TreeView x:Name="TreeViewDocuments" BorderThickness="0">
+            <TreeViewItem Header="Склад">
+                <TreeViewItem x:Name="Income"  Header="Входящие документы" Selected="TreeViewItem_OnSelected"></TreeViewItem>
+                <TreeViewItem Header="Исходящие документы (счета)" Selected="TreeViewItem_OnSelected"></TreeViewItem>
+                <TreeViewItem Header="Заказы">
+                    <TreeViewItem Header="ордер-заказы" Selected="TreeViewItem_OnSelected"></TreeViewItem>
+                    <TreeViewItem Header="заказы клиентов" Selected="TreeViewItem_OnSelected"></TreeViewItem>
+                </TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="Наряд-заказы">
+                <TreeViewItem Header="Выполнение" Selected="TreeViewItem_OnSelected"></TreeViewItem>
+                <TreeViewItem Header="Черновики" Selected="TreeViewItem_OnSelected"></TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="Расчёты">
+                <TreeViewItem Header="Входящие" Selected="TreeViewItem_OnSelected"></TreeViewItem>
+                <TreeViewItem Header="Исходящие" Selected="TreeViewItem_OnSelected"></TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="Удалённые" Selected="TreeViewItem_OnSelected">
+
+            </TreeViewItem>
+        </TreeView>
+    </Grid>
+</UserControl>

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CarAppService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:52469/CarAppService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:52469/CarAppService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:52469/CarAppService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CarService.Core.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ICarAppService_AddOrGetOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrGetOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_AddOrGetOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrGetOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_AddSparetoOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSparetoOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_AddSparetoOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSparetoOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_AddServicetoOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddServicetoOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_AddServicetoOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddServicetoOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_CancelOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_CancelOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_CancelSpareFromOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelSpareFromOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_CancelSpareFromOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelSpareFromOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_DeleteServiceFromOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteServiceFromOrder" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_DeleteServiceFromOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteServiceFromOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_GetClientsOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsOrders" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_GetClientsOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClientsOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_GetAllOrders_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrders" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_GetAllOrders_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllOrdersResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_LoadPrice_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoadPrice" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_LoadPrice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoadPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_GetWorkTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkTypes" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_GetWorkTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWorkTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_GetSpares_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSpares" />
+  </wsdl:message>
+  <wsdl:message name="ICarAppService_GetSpares_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSparesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ICarAppService">
+    <wsdl:operation name="AddOrGetOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarAppService/AddOrGetOrder" message="tns:ICarAppService_AddOrGetOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarAppService/AddOrGetOrderResponse" message="tns:ICarAppService_AddOrGetOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSparetoOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarAppService/AddSparetoOrder" message="tns:ICarAppService_AddSparetoOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarAppService/AddSparetoOrderResponse" message="tns:ICarAppService_AddSparetoOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddServicetoOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarAppService/AddServicetoOrder" message="tns:ICarAppService_AddServicetoOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarAppService/AddServicetoOrderResponse" message="tns:ICarAppService_AddServicetoOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarAppService/CancelOrder" message="tns:ICarAppService_CancelOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarAppService/CancelOrderResponse" message="tns:ICarAppService_CancelOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelSpareFromOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarAppService/CancelSpareFromOrder" message="tns:ICarAppService_CancelSpareFromOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarAppService/CancelSpareFromOrderResponse" message="tns:ICarAppService_CancelSpareFromOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceFromOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarAppService/DeleteServiceFromOrder" message="tns:ICarAppService_DeleteServiceFromOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarAppService/DeleteServiceFromOrderResponse" message="tns:ICarAppService_DeleteServiceFromOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClientsOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarAppService/GetClientsOrders" message="tns:ICarAppService_GetClientsOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarAppService/GetClientsOrdersResponse" message="tns:ICarAppService_GetClientsOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrders">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarAppService/GetAllOrders" message="tns:ICarAppService_GetAllOrders_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarAppService/GetAllOrdersResponse" message="tns:ICarAppService_GetAllOrders_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadPrice">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarAppService/LoadPrice" message="tns:ICarAppService_LoadPrice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarAppService/LoadPriceResponse" message="tns:ICarAppService_LoadPrice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarAppService/GetWorkTypes" message="tns:ICarAppService_GetWorkTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarAppService/GetWorkTypesResponse" message="tns:ICarAppService_GetWorkTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSpares">
+      <wsdl:input wsaw:Action="http://tempuri.org/ICarAppService/GetSpares" message="tns:ICarAppService_GetSpares_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ICarAppService/GetSparesResponse" message="tns:ICarAppService_GetSpares_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ICarAppService" type="tns:ICarAppService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddOrGetOrder">
+      <soap:operation soapAction="http://tempuri.org/ICarAppService/AddOrGetOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSparetoOrder">
+      <soap:operation soapAction="http://tempuri.org/ICarAppService/AddSparetoOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddServicetoOrder">
+      <soap:operation soapAction="http://tempuri.org/ICarAppService/AddServicetoOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelOrder">
+      <soap:operation soapAction="http://tempuri.org/ICarAppService/CancelOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelSpareFromOrder">
+      <soap:operation soapAction="http://tempuri.org/ICarAppService/CancelSpareFromOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteServiceFromOrder">
+      <soap:operation soapAction="http://tempuri.org/ICarAppService/DeleteServiceFromOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClientsOrders">
+      <soap:operation soapAction="http://tempuri.org/ICarAppService/GetClientsOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrders">
+      <soap:operation soapAction="http://tempuri.org/ICarAppService/GetAllOrders" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadPrice">
+      <soap:operation soapAction="http://tempuri.org/ICarAppService/LoadPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWorkTypes">
+      <soap:operation soapAction="http://tempuri.org/ICarAppService/GetWorkTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSpares">
+      <soap:operation soapAction="http://tempuri.org/ICarAppService/GetSpares" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CarAppService">
+    <wsdl:port name="BasicHttpBinding_ICarAppService" binding="tns:BasicHttpBinding_ICarAppService">
+      <soap:address location="http://localhost:52469/CarAppService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

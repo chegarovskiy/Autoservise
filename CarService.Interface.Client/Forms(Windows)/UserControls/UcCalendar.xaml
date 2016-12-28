@@ -1,0 +1,99 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:local="clr-namespace:CarService.Interface.Client.Forms_Windows_.UserControls"
+             xmlns:s="clr-namespace:System;assembly=mscorlib"
+             xmlns:Entities="clr-namespace:CarService.Core.Entities;assembly=CarService.Core.Entities" x:Class="CarService.Interface.Client.Forms_Windows_.UserControls.UcCalendar"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="700">
+    <Grid Margin="0,0,1,0" Background="#FF8E9EA4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="176"/>
+            <ColumnDefinition Width="423*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="67*"/>
+                <RowDefinition Height="99*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnShowDay" Click="BtnShowDay_OnClick" Grid.Column="0" ToolTip="Show works in current day" HorizontalAlignment="Stretch" Height="45" VerticalAlignment="Bottom" Margin="0,0,0,-1">
+                <Image Source="../../Resources/img/calendar-day-icon.png"></Image>    
+                </Button>
+                <Button x:Name="btnShowWeek" Click="BtnShowWeek_OnClick" Grid.Column="1" ToolTip="Show works in current week" HorizontalAlignment="Stretch" Height="45" VerticalAlignment="Bottom">
+                    <Image Source="../../Resources/img/calendar-week-icon.png"></Image>
+                </Button>
+                <Button x:Name="btnShowMonth" Click="BtnShowMonth_OnClick" Grid.Column="2" ToolTip="Show works in current month" HorizontalAlignment="Stretch" Height="45" VerticalAlignment="Bottom" >
+                    <Image Source="../../Resources/img/calendar-month-icon.png"></Image>
+                </Button>
+            </Grid>
+            <Calendar x:Name="CalendarOfWork" HorizontalAlignment="Center" Height="164" VerticalAlignment="Center" Width="176" Grid.Row="1" SelectedDatesChanged="CalendarOfWork_OnSelectedDatesChanged" />
+            <TreeView Grid.Row="2" Background="#FFDFE8CE" x:Name="TreeViewWorkersAndWork">
+
+            </TreeView>
+        </Grid>
+        <Grid Grid.Column="1">
+            <!--<Grid.RowDefinitions>
+                <RowDefinition Height="17*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>-->
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="40*"/>
+                    <!--<RowDefinition Height="0.7*"/>-->
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Label x:Name="lblChosenData" Content="20 october 2017" HorizontalContentAlignment="Center" Foreground="White" FontSize="24" VerticalContentAlignment="Center" Margin="0,0,0,0" />
+                </Grid>
+                <ListView x:Name="lvWorks" Grid.Row="1" Margin="4,0,0,0">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Date" Width="50" DisplayMemberBinding="{Binding Order.StartDate}"/>
+                            <GridViewColumn Header="Work Type" Width="100" DisplayMemberBinding="{Binding Service.Name}"/>
+                            <GridViewColumn Header="Car" Width="100" DisplayMemberBinding="{Binding Order.Client.Cars}"/>
+                            <GridViewColumn Header="Client" Width="100" DisplayMemberBinding="{Binding Order.Client.FullName}"/>
+                            <GridViewColumn Header="Phone" Width="100" DisplayMemberBinding="{Binding Order.Client.Phone}"/>
+                            <GridViewColumn Header="Worker" Width="100" DisplayMemberBinding="{Binding User.FirstName}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+            </Grid>
+            <!--<Grid x:Name="GridClientInfo" Grid.Row="1" Margin="0,5,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35*"/>
+                    <RowDefinition Height="48*"/>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="0.2*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" x:Name="lblHeaderOwner" Content="Client:" HorizontalAlignment="Left" Margin="19,0,0,2" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Width="105" FontSize="14"/>
+                <Label Grid.Column="0" x:Name="lblOwnerName" IsEnabled="False" Content="FIO:" HorizontalAlignment="Left" Margin="0,3,0,4"  VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.Row="1" />
+                <TextBox Grid.Row="1" Grid.Column="0" IsEnabled="False" x:Name="tbOwnerName" HorizontalAlignment="Left" Margin="44,0,0,1" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="" Width="150"/>
+                <Label  Grid.Row="1" Grid.Column="1" x:Name="lblOwnerPhone" Content="Mobile" HorizontalAlignment="Left" Margin="0,8,0,4"  VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Width="62"/>
+                <forms:MaskedTextBox Grid.Row="1" Grid.Column="1" x:Name="tbOwnerPhone" Mask="( 000 ) 00 - 00 - 000" ValueDataType="{x:Type s:String}"  HorizontalAlignment="Left" VerticalContentAlignment="Center" Margin="72,0,0,1" TextWrapping="Wrap"  Width="122"/>
+                <Label Grid.Row="3" Grid.Column="0" x:Name="lblHeaderCar" Content="Автомобиль:" HorizontalAlignment="Left" Margin="19,0,0,28" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Width="105" FontSize="14" Grid.RowSpan="2"/>
+                <Label  Grid.Row="4" Grid.Column="0" x:Name="lblCarModel" Content="Модель:" Height="25" Margin="0,2,153,2"  VerticalAlignment="Stretch" VerticalContentAlignment="Stretch"/>
+                <TextBox Grid.Row="4" Grid.Column="0" x:Name="tbCarModel" HorizontalAlignment="Left" Margin="64,0,0,1" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="" Width="130"/>
+                <Label  Grid.Row="4" Grid.Column="1" x:Name="lblCarNumber" Content="Гос номер:" HorizontalAlignment="Left" Height="25" Margin="0,2,0,1"  VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Width="72"/>
+                <TextBox Grid.Row="4" Grid.Column="1" x:Name="tbCarNumber" HorizontalAlignment="Left" Margin="72,0,0,1" TextWrapping="Wrap" VerticalContentAlignment="Center" Text="" Width="122"/>
+-
+            </Grid>-->
+        </Grid>
+    </Grid>
+</UserControl>
